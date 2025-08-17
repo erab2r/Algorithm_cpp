@@ -16,11 +16,11 @@ int main()
         int a,b;
         cin >> a >> b;
         adj_matrix[a][b] = 1;
-        adj_matrix[b][a] = 1;
+        
     }
       for(int i = 0;i<n;i++)
     {
-        for(int j = 0; j<n;j++)
+        for(int j = 0; j<n;j++)        
         {
            cout << adj_matrix[i][j] << " ";
         }
