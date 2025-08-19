@@ -50,11 +50,16 @@ int main()
     //     cout << i << " Parent -> " << parent[i] << endl;
     // }
     int node = dst;
+    vector<int> path;
     while(node != -1)
     {
-        cout << node << " ";
+        path.push_back(node);
         node = parent[node];
     }
-    cout << level[dst] << endl; 
+    reverse(path.begin(), path.end());
+    for(int x : path)
+    {
+        cout << x << " ";
+    }
 
 }                                                                                                             
