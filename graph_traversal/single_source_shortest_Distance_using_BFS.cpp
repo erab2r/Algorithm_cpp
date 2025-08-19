@@ -42,10 +42,10 @@ int main()
     int src,dst;
     cin >> src >> dst;
     bfs(0);
-    for (int i = 0; i < n; i++)
-    {
-        cout << i << " -> " << level[i] << endl;
-    }
-
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << i << " -> " << level[i] << endl;
+    // }
+    cout << level[dst] << endl; 
 
 }
