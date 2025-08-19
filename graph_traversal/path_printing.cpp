@@ -49,6 +49,12 @@ int main()
     // {
     //     cout << i << " Parent -> " << parent[i] << endl;
     // }
+    int node = dst;
+    while(node != -1)
+    {
+        cout << node << " ";
+        node = parent[node];
+    }
     cout << level[dst] << endl; 
 
 }                                                                                                             
