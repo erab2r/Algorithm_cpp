@@ -2,12 +2,13 @@
 using namespace std;
 vector<int>adj_list[1005];
 bool visited[1005];
-int level[1005]; // To store the level of each node
+int level[1005];
+int parent[1005]; // To store the level of each node
 void bfs(int src)
 {
     queue<int> q;
     q.push(src);
-    visited[src] = true;
+    visited[src] = true; 
     while (!q.empty())
     {
         int par  = q.front();
@@ -20,6 +21,7 @@ void bfs(int src)
                 visited[child] = true;
                 q.push(child);
                 level[child] = level[par] + 1; 
+                parent[child] = par; // Store the parent of the child node
             }
        
         }
@@ -39,13 +41,14 @@ int main()
     }
     memset(visited,false,sizeof(visited));
     memset(level,-1,sizeof(level));
+    memset(parent,-1,sizeof(parent));
     int src,dst;
     cin >> src >> dst;
     bfs(0);
-    // for (int i = 0; i < n; i++)
+    // for(int i = 0; i < n; i++)
     // {
-    //     cout << i << " -> " << level[i] << endl;
+    //     cout << i << " Parent -> " << parent[i] << endl;
     // }
     cout << level[dst] << endl; 
 
-}
+}                                                                                                             
