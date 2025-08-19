@@ -38,7 +38,12 @@ int main()
         adj_list[b].push_back(a); 
     }
     memset(visited,false,sizeof(visited));
+    int src,dst;
+    cin >> src >> dst;
     bfs(0);
- 
+    if(visited[dst])
+        cout << "Yes, there is a path from " << src << " to " << dst << endl;
+    else
+        cout << "No, there is no path from " << src << " to " << dst << endl;
      return 0;
 }
