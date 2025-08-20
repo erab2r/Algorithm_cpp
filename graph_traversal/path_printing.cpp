@@ -1,32 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
-vector<int>adj_list[1005];
+vector<int> adj_list[1005];
 bool visited[1005];
 int level[1005];
-int parent[1005]; // To store the level of each node
+int parent[1005];
+
 void bfs(int src)
 {
     queue<int> q;
     q.push(src);
-    visited[src] = true; 
-    while (!q.empty())
+    visited[src] = true;
+    level[src] = 0;
+
+    while(!q.empty())
     {
-        int par  = q.front();
+        int par = q.front();
         q.pop();
-        cout << par << " ";
+
         for(int child : adj_list[par])
         {
-            if(visited[child] == false)
+            if(!visited[child])
             {
-                visited[child] = true;
                 q.push(child);
-                level[child] = level[par] + 1; 
-                parent[child] = par; // Store the parent of the child node
+                visited[child] = true;
+                level[child] = level[par] + 1;
+                parent[child] = par;
             }
-       
         }
     }
-    cout << endl; 
 }
 int main()
 {   
