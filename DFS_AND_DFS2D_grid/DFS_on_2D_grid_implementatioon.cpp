@@ -1,37 +1,40 @@
 #include<bits/stdc++.h>
 using namespace std;
 char grid[105][105];
-bool visited[105][105];
-vector<pair<int,int>> d ={{-1,0},{1,0},{0,-1},{0,1}}; 
+bool vis[105][105];
+vector<pair<int,int>> d = {{-1,0},{1,0},{0,-1},{0,1}};
+int n,m;
+
+bool valid(int i, int j)
+{
+    if(i<0 || i>=n || j<0 || j>=m)
+        return false;
+    return true;
+}
+
 void dfs(int si, int sj)
 {
-    
-}
-{
-    cout << "(" << i << "," << j << ") ";
-    visited[i][j] = true;
-    for(auto [di,dj] : d)
+    cout << si << " " << sj << endl;
+    vis[si][sj] = true;
+    for(int i=0;i<4;i++)
     {
-        int ni = i + di;
-        int nj = j + dj;
-        if(ni >= 0 && ni < 105 && nj >= 0 && nj < 105 && !visited[ni][nj] && grid[ni][nj] == '.')
-        {
-            dfs(ni, nj);
-        }
+        int ci = si + d[i].first;
+        int cj = sj + d[i].second;
+        if(valid(ci,cj) && !vis[ci][cj])
+            dfs(ci,cj);
     }
 }
+
 int main()
 {
-    int n,m;
     cin >> n >> m;
-    for(int i = 0;i<n;i++)
-        for(int j = 0;j<m;j++)
+    for(int i=0;i<n;i++)
+        for(int j=0;j<m;j++)
             cin >> grid[i][j];
+
     int si,sj;
     cin >> si >> sj;
-    memset(visited,false,sizeof(visited));
+    memset(vis,false,sizeof(vis));
     dfs(si,sj);
     return 0;
-        
-    
 }
