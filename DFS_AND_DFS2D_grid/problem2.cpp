@@ -1,3 +1,4 @@
+//Question: You will be given an undirected graph as input. You need to tell the number of components in this graph.
 #include<bits/stdc++.h>
 using namespace std;
 vector<int> adj_list[1005];
