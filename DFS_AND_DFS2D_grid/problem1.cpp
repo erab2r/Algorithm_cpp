@@ -1,4 +1,4 @@
-//Question: You will be given an undirected graph as input. Then you will be given a node N. You need to tell the number of nodes that can be visited from node N.
+//Question: You will be given an undirected graph as input. You need to tell the number of nodes in each component in ascending order.
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -28,9 +28,18 @@ int main()
         adj_list[b].push_back(a);
     }
     memset(visited,false,sizeof(visited));
-    int start_node;
-    cin >> start_node;
-    dfs(start_node);
-    cout << cnt << endl;
+    vector<int> components;
+    for(int i = 0; i<n; i++)
+    {
+        if(visited[i] == false)
+        {
+            cnt = 0;
+            dfs(i);
+            components.push_back(cnt);
+        }
+    }
+    sort(components.begin(),components.end());
+    for( int x : components)
+        cout << x << " ";
     return 0;
 }
