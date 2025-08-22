@@ -28,7 +28,7 @@ void bfs(int si,int sj)
             int ci = par_i + d[i].first;
             int cj = par_j + d[i].second;
             if(valid(ci,cj)== true && !visited[ci][cj])
-            {
+            {    
                 q.push({ci,cj});
                 visited[ci][cj] = true;
         }
@@ -46,6 +46,6 @@ int main()
     cin >> si >> sj;
     memset(visited,false,sizeof(visited));
     bfs(si,sj);
-    return 0;
+    return 0; 
     
 }
