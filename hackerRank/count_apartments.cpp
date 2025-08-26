@@ -42,7 +42,6 @@ int main() {
             cin >> grid[i][j];
 
     memset(vis,false,sizeof(vis));
-
     int c = 0;
     for(int i=0;i<n;i++) {
         for(int j=0;j<m;j++) {
