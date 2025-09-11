@@ -8,6 +8,8 @@ int fact(int n)
 }
 int main()
 {   
-    cout <<fact(5);
+    int n;
+    cin >> n;
+    cout <<fact(n);
     return 0;
 }
